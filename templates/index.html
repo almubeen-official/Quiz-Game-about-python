@@ -1,0 +1,20 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Quiz Game — Intro</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <div class="container card">
+    <h1 class="intro-title">Welcome, {{ username }} 🎉</h1>
+    <p class="intro-subtitle">Test your Python knowledge — 10 questions each round. Good luck!</p>
+    <div class="form-row">
+      <a href="{{ url_for('quiz') }}"><button class="btn primary">Start Quiz</button></a>
+      <a href="{{ url_for('leaderboard') }}"><button class="btn secondary">Leaderboard</button></a>
+      <a href="{{ url_for('logout') }}"><button class="btn secondary">Logout</button></a>
+    </div>
+  </div>
+</body>
+</html>
