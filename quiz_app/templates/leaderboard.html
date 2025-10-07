@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block content %}
+  <h2>Leaderboard (Top 5)</h2>
+  <table class="leaderboard">
+    <tr><th>Rank</th><th>User</th><th>Avg Score</th><th>Games</th></tr>
+    {% for item in leaderboard %}
+      <tr>
+        <td>{{ item.rank }}</td>
+        <td>{{ item.user }}</td>
+        <td>{{ "%.2f"|format(item.avg) }}/10</td>
+        <td>{{ item.games }}</td>
+      </tr>
+    {% else %}
+      <tr><td colspan="4">No scores yet.</td></tr>
+    {% endfor %}
+  </table>
+  <p><a href="{{ url_for('enter_name') }}">Back to Home</a></p>
+{% endblock %}

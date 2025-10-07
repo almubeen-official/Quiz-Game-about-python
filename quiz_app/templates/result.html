@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Result — {{ player }}</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body class="bg">
+  <div class="card center-card">
+    <h2>🎉 Quiz Completed</h2>
+    <p class="muted">Player: <strong>{{ player }}</strong></p>
+    <p class="score">Score: <strong>{{ score }}</strong> / {{ total }}</p>
+    <p class="percentage">Percentage: <strong>{{ (score / total * 100)|round(2) }}%</strong></p>
+
+    <section class="leaderboard">
+      <h3>Top 5 (by avg)</h3>
+      <ol>
+        {% for user, avg in ranking %}
+          <li>{{ user }} — {{ avg|round(2) }}/10</li>
+        {% else %}
+          <li>No leaderboard data yet</li>
+        {% endfor %}
+      </ol>
+    </section>
+
+    <div class="actions">
+      <a class="btn primary" href="{{ url_for('enter_name') }}">Play Again</a>
+      <a class="btn ghost" href="{{ url_for('logout') }}">Logout</a>
+    </div>
+  </div>
+</body>
+</html>

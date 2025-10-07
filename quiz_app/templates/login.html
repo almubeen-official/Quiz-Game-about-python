@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Quiz Game — Login</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body class="bg">
+  <div class="card center-card">
+    <h1 class="brand">Quiz Game</h1>
+    <p class="muted">Login to continue</p>
+
+    <form method="post" class="form">
+      <input name="username" placeholder="Username" required />
+      <input name="password" placeholder="Password" type="password" required />
+      <button type="submit" class="btn primary">Login</button>
+    </form>
+
+    {% if error %}
+      <p class="error">{{ error }}</p>
+    {% endif %}
+
+    <p class="hint">Use: <strong>almubeen</strong> / <strong>quiz game</strong></p>
+  </div>
+</body>
+</html>
